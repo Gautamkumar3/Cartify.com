@@ -29,77 +29,17 @@ Cartify is a ecommerce website where you can  purchase Jewelaray, accessories, c
 https://gk-singh-cart-demo.netlify.app/
 
 
-
-### Following are the Screenshots for the reference
-
-- Landing Page
-  ![careful-seed-4617-inside-skismile75-gmailcom vercel app_](https://user-images.githubusercontent.com/101392872/191095270-adb5413e-1db4-4760-9ee7-8b53ec4742e6.png)
-
- 
-  - Sign-In Page 
- ![Screenshot (1910)](https://user-images.githubusercontent.com/101392872/191097345-2c9b4d4e-6fc4-4303-9b9e-7ff4355d390b.png)
-
- 
-
-- Sign-In Page
-
-![Screenshot (1908)](https://user-images.githubusercontent.com/101392872/191097372-6d171905-ad17-433e-9143-6bc3573c99a9.png)
-
- 
- 
- 
- 
-- Product Page
-![careful-seed-4617-inside-skismile75-gmailcom vercel app_ (1)](https://user-images.githubusercontent.com/101392872/191095879-94570788-ce51-4122-a0b1-3685b2d28dfd.png)
-
-  
-
-- Product-details Page
-
-  ![careful-seed-4617-inside-skismile75-gmailcom vercel app_ (2)](https://user-images.githubusercontent.com/101392872/191096199-7cf8f5bd-78b0-4f5f-8cff-d0cd85d21cad.png)
-
- 
- 
-
-
-- Cart-Page
-![careful-seed-4617-inside-skismile75-gmailcom vercel app_cart](https://user-images.githubusercontent.com/101392872/191096773-844e7718-398e-49c4-9616-78f1f6d7ff2c.png)
-
-
-
-- Checkout Page
-![careful-seed-4617-inside-skismile75-gmailcom vercel app_cart (1)](https://user-images.githubusercontent.com/101392872/191096922-3cc21271-fe71-4587-9756-b1e93a112f7b.png)
-
-  
-
-
-- Payment Page
-![careful-seed-4617-inside-skismile75-gmailcom vercel app_cart (1)](https://user-images.githubusercontent.com/101392872/191096999-ba98665d-76a8-4768-a4c9-fa4b3d386e71.png)
-
-  
-
-
----
-
-
 ### About Project
 
-> T did this project within 5 days in my construct week.
+> This project is a part of my class assignment. I completed it within 3 days.
 
 
 ---
 
-------
-
-### Vercel deploy Link
- 
-
-https://careful-seed-4617-inside-skismile75-gmailcom.vercel.app
-------
  
 <h1>WEBSITE USER FLOW ></h1>
 
 the user flow that we tried to maintain is,
 <br/>
-home -> login/signup -> dashboard -> get started to products -> create user Id-> Enter email details -> 
-choose products ->Cart page -> Product detail page-> -> Products Check out page -> order placed.
+home -> login/signup -> Home -> get started to products --> 
+ Product detail page->Add products to the cart -> Cart page.
