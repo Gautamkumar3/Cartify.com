@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+###   website <span>Cartify.com<span>
+<h2>Welcome to this repo</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I completed the task in 3 days and Given my
+ best efforts for complete this project.
+In case of any suggestion and query feel free to connect me.
 
-## Available Scripts
+ <h1>TOOLS AND TECHNOLOGY USED ></h1>
+  <li>HTML</li>
+  <li>css</li>
+<li>javascript</li>  
+<li>font Awesom icons</li>
+<li>Chakra UI</li>
+<li>JSON</li>
+<li>React js</li>
 
-In the project directory, you can run:
 
-### `npm start`
+### Project Description
+ 
+ 
+ <h1>About </h1>
+Cartify is a ecommerce website where you can  purchase Jewelaray, accessories, cloths and electronics for the entire family - women, men and children..
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### Deplyoed Link
+ 
+https://gk-singh-cart-demo.netlify.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Following are the Screenshots for the reference
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Landing Page
+  ![careful-seed-4617-inside-skismile75-gmailcom vercel app_](https://user-images.githubusercontent.com/101392872/191095270-adb5413e-1db4-4760-9ee7-8b53ec4742e6.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ 
+  - Sign-In Page 
+ ![Screenshot (1910)](https://user-images.githubusercontent.com/101392872/191097345-2c9b4d4e-6fc4-4303-9b9e-7ff4355d390b.png)
 
-### `npm run eject`
+ 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Sign-In Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Screenshot (1908)](https://user-images.githubusercontent.com/101392872/191097372-6d171905-ad17-433e-9143-6bc3573c99a9.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ 
+ 
+ 
+ 
+- Product Page
+![careful-seed-4617-inside-skismile75-gmailcom vercel app_ (1)](https://user-images.githubusercontent.com/101392872/191095879-94570788-ce51-4122-a0b1-3685b2d28dfd.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  
 
-## Learn More
+- Product-details Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  ![careful-seed-4617-inside-skismile75-gmailcom vercel app_ (2)](https://user-images.githubusercontent.com/101392872/191096199-7cf8f5bd-78b0-4f5f-8cff-d0cd85d21cad.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 
+ 
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Cart-Page
+![careful-seed-4617-inside-skismile75-gmailcom vercel app_cart](https://user-images.githubusercontent.com/101392872/191096773-844e7718-398e-49c4-9616-78f1f6d7ff2c.png)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+- Checkout Page
+![careful-seed-4617-inside-skismile75-gmailcom vercel app_cart (1)](https://user-images.githubusercontent.com/101392872/191096922-3cc21271-fe71-4587-9756-b1e93a112f7b.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Payment Page
+![careful-seed-4617-inside-skismile75-gmailcom vercel app_cart (1)](https://user-images.githubusercontent.com/101392872/191096999-ba98665d-76a8-4768-a4c9-fa4b3d386e71.png)
 
-### Deployment
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### About Project
+
+> T did this project within 5 days in my construct week.
+
+
+---
+
+------
+
+### Vercel deploy Link
+ 
+
+https://careful-seed-4617-inside-skismile75-gmailcom.vercel.app
+------
+ 
+<h1>WEBSITE USER FLOW ></h1>
+
+the user flow that we tried to maintain is,
+<br/>
+home -> login/signup -> dashboard -> get started to products -> create user Id-> Enter email details -> 
+choose products ->Cart page -> Product detail page-> -> Products Check out page -> order placed.
