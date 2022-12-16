@@ -19,9 +19,13 @@ const Navbar = () => {
 
 
     const searchData = (query) => {
-        axios.get(`https://gk-general-api.herokuapp.com/products?q=${query}`).then((res) => {
-            setData(res.data)
-        })
+        axios
+          .get(
+            `https://cartify-project-api-production.up.railway.app/products?q=${query}`
+          )
+          .then((res) => {
+            setData(res.data);
+          });
     }
 
     const handleQuery = (e) => {

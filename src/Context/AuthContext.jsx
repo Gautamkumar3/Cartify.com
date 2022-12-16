@@ -16,9 +16,13 @@ export default function AuthContextProvider({ children }) {
 
     const cartshowData = () => {
         try {
-            axios.get("https://gk-general-api.herokuapp.com/cart").then((res) => {
-                setCartData(res.data)
-            })
+            axios
+              .get(
+                "https://cartify-project-api-production.up.railway.app/cart"
+              )
+              .then((res) => {
+                setCartData(res.data);
+              });
         } catch (er) {
             console.log(er)
         }
@@ -32,52 +36,78 @@ export default function AuthContextProvider({ children }) {
 
 
     const handleAddQty = (id) => {
-        axios.get(`https://gk-general-api.herokuapp.com/cart/${id}`).then((res) => {
+        axios
+          .get(
+            `https://cartify-project-api-production.up.railway.app/cart/${id}`
+          )
+          .then((res) => {
             res.data.qty += 1;
-            axios.patch(`https://gk-general-api.herokuapp.com/cart/${id}`, { qty: res.data.qty }).then((res) => {
-                setQty(qty + 1)
+            axios
+              .patch(
+                `https://cartify-project-api-production.up.railway.app/cart/${id}`,
+                {
+                  qty: res.data.qty,
+                }
+              )
+              .then((res) => {
+                setQty(qty + 1);
                 toast({
-                    title: 'Product added',
-                    description: "Quantity Increases",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                    position: "top",
-                })
-            })
-        })
+                  title: "Product added",
+                  description: "Quantity Increases",
+                  status: "success",
+                  duration: 3000,
+                  isClosable: true,
+                  position: "top",
+                });
+              });
+          });
 
     }
     const handleDecreaseQty = (id) => {
-        axios.get(`https://gk-general-api.herokuapp.com/cart/${id}`).then((res) => {
+        axios
+          .get(
+            `https://cartify-project-api-production.up.railway.app/cart/${id}`
+          )
+          .then((res) => {
             res.data.qty -= 1;
-            axios.patch(`https://gk-general-api.herokuapp.com/cart/${id}`, { qty: res.data.qty }).then((res) => {
-                setQty(qty - 1)
+            axios
+              .patch(
+                `https://cartify-project-api-production.up.railway.app/cart/${id}`,
+                {
+                  qty: res.data.qty,
+                }
+              )
+              .then((res) => {
+                setQty(qty - 1);
                 toast({
-                    title: 'Product removed',
-                    description: "Quantity decreases",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                    position: "top",
-                })
-            })
-        })
+                  title: "Product removed",
+                  description: "Quantity decreases",
+                  status: "success",
+                  duration: 3000,
+                  isClosable: true,
+                  position: "top",
+                });
+              });
+          });
 
     }
 
     const handleDelete = (id) => {
-        axios.delete(`https://gk-general-api.herokuapp.com/cart/${id}`).then((res) => {
-            setQty(qty + 1)
+        axios
+          .delete(
+            `https://cartify-project-api-production.up.railway.app/cart/${id}`
+          )
+          .then((res) => {
+            setQty(qty + 1);
             toast({
-                title: 'Product Deleted',
-                description: "Product removed from the cart",
-                status: 'success',
-                duration: 9000,
-                isClosable: true,
-                position: "top",
-            })
-        })
+              title: "Product Deleted",
+              description: "Product removed from the cart",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+              position: "top",
+            });
+          });
     }
 
 

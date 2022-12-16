@@ -21,10 +21,14 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get(`https://gk-general-api.herokuapp.com/products?_sort=price&_order=${sortBy}`).then((res) => {
-            setData(res.data)
-            setLoading(false)
-        })
+        axios
+          .get(
+            `https://cartify-project-api-production.up.railway.app/products?_sort=price&_order=${sortBy}`
+          )
+          .then((res) => {
+            setData(res.data);
+            setLoading(false);
+          });
     }, [sortBy])
 
 

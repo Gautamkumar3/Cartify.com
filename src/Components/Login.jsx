@@ -17,9 +17,11 @@ const Login = () => {
 
 
     useEffect(() => {
-        axios.get("https://gk-general-api.herokuapp.com/signup").then((res) => {
-            setSignupData(res.data)
-        })
+        axios
+          .get("https://cartify-project-api-production.up.railway.app/signup")
+          .then((res) => {
+            setSignupData(res.data);
+          });
     }, [])
 
 

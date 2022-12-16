@@ -13,10 +13,14 @@ const Jewellary = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get("https://gk-general-api.herokuapp.com/jewellary").then((res) => {
-            setData(res.data)
-            setLoading(false)
-        })
+        axios
+          .get(
+            "https://cartify-project-api-production.up.railway.app/jewellary"
+          )
+          .then((res) => {
+            setData(res.data);
+            setLoading(false);
+          });
     }, [])
     return (
 

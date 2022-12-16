@@ -22,19 +22,24 @@ const Signup = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("https://gk-general-api.herokuapp.com/signup", formData).then((res) => {
-            console.log(res.data)
+        axios
+          .post(
+            "https://cartify-project-api-production.up.railway.app/signup",
+            formData
+          )
+          .then((res) => {
+            console.log(res.data);
             toast({
-                title: 'Product added',
-                description: "Product added in the cart",
-                status: 'success',
-                duration: 9000,
-                isClosable: true,
-                position: "top",
-            })
-            setFormData({ name: "", email: "", password: "" })
-            navigate("/login")
-        })
+              title: "Product added",
+              description: "Product added in the cart",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+              position: "top",
+            });
+            setFormData({ name: "", email: "", password: "" });
+            navigate("/login");
+          });
 
     }
 
