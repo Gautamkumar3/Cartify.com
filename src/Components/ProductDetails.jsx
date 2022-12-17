@@ -15,10 +15,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
-import OrderSuccess from "./OrderSuccess";
 
 const detailsShow = (id) => {
-  const api = "https://cartify-project-api-production.up.railway.app/";
+  const api = "https://cartify-project-api-production.up.railway.app";
 
   if (id <= 20) {
     return fetch(`${api}/products/${id}`).then((res) => res.json());

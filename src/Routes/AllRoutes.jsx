@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
+import Address from '../Components/Address/Address';
 import Cart from '../Components/Cart';
 import Electronics from '../Components/Electronics'
 import Error404 from '../Components/Error404';
@@ -25,6 +26,7 @@ const AllRoutes = () => {
             <Route path="/shoppingcart/:id" element={<ProductDetails />} />
             <Route path="/*" element={<Error404 />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/address" element={<Address />} />
         </Routes>
     )
 }

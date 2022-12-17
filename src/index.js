@@ -1,26 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react';
-import AuthContextProvider from './Context/AuthContext';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { ChakraProvider } from "@chakra-ui/react";
+import AuthContextProvider from "./Context/AuthContext";
+import { BrowserRouter } from "react-router-dom";
+import { UserContextProvider } from "./Context/UserContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <AuthContextProvider>
-      <BrowserRouter>
-        <ChakraProvider>
+  <AuthContextProvider>
+    <BrowserRouter>
+      <ChakraProvider>
+        <UserContextProvider>
           <App />
-        </ChakraProvider>
-      </BrowserRouter>
-    </AuthContextProvider>
-  </React.StrictMode>
+        </UserContextProvider>
+      </ChakraProvider>
+    </BrowserRouter>
+  </AuthContextProvider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

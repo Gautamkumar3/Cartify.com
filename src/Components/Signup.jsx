@@ -4,6 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import Styles from "./Login.module.css"
 import { useNavigate } from 'react-router-dom'
+import { useUserContext } from '../Context/UserContext'
 
 
 // url="https://reqres.in/api/login"
@@ -12,6 +13,8 @@ const Signup = () => {
 
     const navigate = useNavigate()
     const toast = useToast()
+    const { user, signupUser } = useUserContext();
+    console.log(user)
 
     const [formData, setFormData] = useState({ name: "", email: "", password: "" })
 
@@ -22,24 +25,25 @@ const Signup = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios
-          .post(
-            "https://cartify-project-api-production.up.railway.app/signup",
-            formData
-          )
-          .then((res) => {
-            console.log(res.data);
-            toast({
-              title: "Product added",
-              description: "Product added in the cart",
-              status: "success",
-              duration: 9000,
-              isClosable: true,
-              position: "top",
-            });
-            setFormData({ name: "", email: "", password: "" });
-            navigate("/login");
-          });
+        signupUser(formData)
+        // axios
+        //   .post(
+        //     "https://cartify-project-api-production.up.railway.app/signup",
+        //     formData
+        //   )
+        //   .then((res) => {
+        //     console.log(res.data);
+        //     toast({
+        //       title: "Product added",
+        //       description: "Product added in the cart",
+        //       status: "success",
+        //       duration: 9000,
+        //       isClosable: true,
+        //       position: "top",
+        //     });
+        //     setFormData({ name: "", email: "", password: "" });
+        //     navigate("/login");
+        //   });
 
     }
 
