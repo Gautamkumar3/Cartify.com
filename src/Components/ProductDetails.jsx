@@ -15,6 +15,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
+import Navbar from "./Navbar";
 
 const detailsShow = (id) => {
   const api = "https://cartify-project-api-production.up.railway.app";
@@ -34,6 +35,7 @@ const ProductDetails = () => {
   const toast = useToast();
   const { id } = useParams();
   const [data, setData] = useState({});
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     detailsShow(id).then((res) => {
@@ -48,8 +50,9 @@ const ProductDetails = () => {
     if (cartData.length === 0) {
       try {
         axios
-          .post("https://gk-general-api.herokuapp.com/cart", {
+          .post("https://cartify-project-api-production.up.railway.app/cart", {
             ...data,
+            userEmail: user.email,
             qty: 1,
           })
           .then((res) => {
@@ -70,16 +73,15 @@ const ProductDetails = () => {
       cartData.map((el) => {
         if (el.id === id) {
           axios
-            .get(`https://gk-general-api.herokuapp.com/cart/${id}`)
+            .get(`https://cartify-project-api-production.up.railway.app/cart/${id}`)
             .then((res) => {
               res.data.qty += 1;
               axios
-                .patch(`https://gk-general-api.herokuapp.com/cart/${id}`, {
+                .patch(`https://cartify-project-api-production.up.railway.app/cart/${id}`, {
                   qty: res.data.qty,
                 })
                 .then((res) => {
                   cartshowData();
-                  alert("Product is already in the cart");
                   toast({
                     title: "Quantity Increase",
                     description: "Product already in the cart",
@@ -92,8 +94,9 @@ const ProductDetails = () => {
             });
         } else {
           axios
-            .post("https://gk-general-api.herokuapp.com/cart", {
+            .post("https://cartify-project-api-production.up.railway.app/cart", {
               ...data,
+              userEmail: user.email,
               qty: 1,
             })
             .then((res) => {
@@ -112,63 +115,53 @@ const ProductDetails = () => {
     }
   };
 
-  // const addToCart = () => {
-  //     try {
-  //         axios.post("https://gk-general-api.herokuapp.com/cart", { ...data, qty: 1 }).then(res => {
-  //             cartshowData()
-  //             alert("Product added to cart")
-
-  //         })
-  //     } catch (er) {
-  //         console.log(er)
-  //     }
-
-  // }
-
   return (
-    <Flex
-      w="60%"
-      margin="auto"
-      marginTop={10}
-      gap={20}
-      border="1px solid black"
-      padding={10}
-      background="#9ab3b3"
-    >
-      <Box>
-        <Image maxH="300px" src={data.image} alt="image" />
-      </Box>
-      <Box width="70%">
-        <Text fontSize="2xl">{data.title}</Text>
-        <Flex gap={10}>
-          <Badge
-            borderRadius="5px"
-            p="3px 5px"
-            background="#84be52"
+    <>
+      <Navbar />
+      <Flex
+        w="60%"
+        margin="auto"
+        marginTop={10}
+        gap={20}
+        border="1px solid black"
+        padding={10}
+        background="#9ab3b3"
+      >
+        <Box>
+          <Image maxH="300px" src={data.image} alt="image" />
+        </Box>
+        <Box width="70%">
+          <Text fontSize="2xl">{data.title}</Text>
+          <Flex gap={10}>
+            <Badge
+              borderRadius="5px"
+              p="3px 5px"
+              background="#84be52"
+              color="white"
+            >
+              4.3 *
+            </Badge>
+            <Text>{195} Reviews</Text>
+          </Flex>
+          <Text fontSize="2xl">$ {data.price}</Text>
+          <Text>{data.description}</Text>
+          <Link to="/">
+            <Button background="tomato" color="white" marginTop={5}>
+              Go Back
+            </Button>
+          </Link>
+          <Button
+            background="teal"
             color="white"
+            marginTop={5}
+            marginLeft="10px"
+            onClick={() => addToCart(data.id)}
           >
-            4.3 *
-          </Badge>
-          <Text>{195} Reviews</Text>
-        </Flex>
-        <Text fontSize="2xl">$ {data.price}</Text>
-        <Text>{data.description}</Text>
-        <Link to="/">
-          <Button background="tomato" color="white" marginTop={5}>
-            Go Back
+            Add to Cart
           </Button>
-        </Link>
-        <Button
-          background="teal"
-          color="white"
-          marginTop={5}
-          marginLeft="10px"
-          onClick={() => addToCart(data.id)}
-        >
-          Add to Cart
-        </Button>
-      </Box>
-    </Flex>
+        </Box>
+      </Flex>
+    </>
   );
 };
 

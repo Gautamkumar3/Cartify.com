@@ -42,8 +42,7 @@ export default function AuthContextProvider({ children }) {
           .then((res) => {
             setQty(qty + 1);
             toast({
-              title: "Product added",
-              description: "Quantity Increases",
+              title: "Quantity Increases successfully",
               status: "success",
               duration: 3000,
               isClosable: true,
@@ -67,8 +66,7 @@ export default function AuthContextProvider({ children }) {
           .then((res) => {
             setQty(qty - 1);
             toast({
-              title: "Product removed",
-              description: "Quantity decreases",
+              title: "Quantity decreases successfully",
               status: "success",
               duration: 3000,
               isClosable: true,
@@ -86,37 +84,23 @@ export default function AuthContextProvider({ children }) {
       .then((res) => {
         setQty(qty + 1);
         toast({
-          title: "Product Deleted",
-          description: "Product removed from the cart",
+          title: "Product removed from the cart successfully",
           status: "success",
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
           position: "top",
         });
       });
   };
 
-  const [isAuth, setIsAuth] = useState({ auth: false, name: null });
-
-  const handleLogin = (name) => {
-    setIsAuth({ auth: true, name: name });
-  };
-  const handleLogout = (name) => {
-    setIsAuth({ auth: false, name: null });
-  };
-
   return (
     <AuthContext.Provider
       value={{
-        isAuth,
-        handleLogin,
         handleAddQty,
         handleDecreaseQty,
         handleDelete,
         cartData,
         cartshowData,
-        setIsAuth,
-        handleLogout,
       }}
     >
       {children}

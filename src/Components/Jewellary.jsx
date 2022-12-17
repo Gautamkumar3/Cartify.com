@@ -5,6 +5,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import ProductCard from './Card'
+import Navbar from './Navbar'
 
 const Jewellary = () => {
 
@@ -25,6 +26,7 @@ const Jewellary = () => {
     return (
 
         <div>
+            <Navbar/>
             {loading ? <CircularProgress size="200px" marginLeft="45%" isIndeterminate color='green.300' /> :
                 <div>
                     <Heading margin={10}>Jewellary</Heading>

@@ -18,14 +18,16 @@ export default function ProductCard(props) {
   const { title, avatar, rating, price, category, id } = props;
 
   const toast = useToast();
-
   const { cartshowData, cartData } = useContext(AuthContext);
+   const user = JSON.parse(localStorage.getItem("user")) || "";
+  console.log(cartData)
 
   const addToCart = (id) => {
     if (cartData.length === 0) {
       axios
         .post("https://cartify-project-api-production.up.railway.app/cart", {
           ...props,
+          userEmail: user.email,
           qty: 1,
         })
         .then((res) => {
@@ -69,13 +71,13 @@ export default function ProductCard(props) {
           axios
             .post(
               "https://cartify-project-api-production.up.railway.app/cart",
-              { ...props, qty: 1 }
+              { ...props, qty: 1, userEmail: user.email }
             )
             .then((res) => {
               cartshowData();
               toast({
                 title: "Product added.",
-                description: "Product added in the cart",
+                description: "Product added in the cart successfully",
                 status: "success",
                 duration: 9000,
                 isClosable: true,
@@ -86,17 +88,6 @@ export default function ProductCard(props) {
       });
     }
   };
-
-  // const addToCart = () => {
-  //     try {
-  //         axios.post("https://gk-general-api.herokuapp.com/cart", { ...props, qty: 1 }).then(res => {
-  //             cartshowData()
-  //         })
-  //     } catch (er) {
-  //         console.log(er)
-  //     }
-
-  // }
 
   return (
     <Box

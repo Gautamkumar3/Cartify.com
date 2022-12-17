@@ -8,6 +8,7 @@ import Home from '../Components/Home'
 import Jewellary from '../Components/Jewellary'
 import Login from '../Components/Login';
 import Men from '../Components/Men'
+import OrderConfirm from '../Components/Orderconfirm/OrderConfirm';
 import ProductDetails from '../Components/ProductDetails';
 import Signup from '../Components/Signup';
 import Women from '../Components/Women'
@@ -27,6 +28,7 @@ const AllRoutes = () => {
             <Route path="/*" element={<Error404 />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/address" element={<Address />} />
+            <Route path="/confirm" element={<OrderConfirm />} />
         </Routes>
     )
 }

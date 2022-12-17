@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
-import { AuthContext } from '../Context/AuthContext'
+
 
 const PrivateRoute = ({ children }) => {
-    const { isAuth } = useContext(AuthContext)
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    if (!isAuth.auth) {
+    if (!user) {
         return <Navigate to="/login" />
     }
 

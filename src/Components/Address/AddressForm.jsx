@@ -12,8 +12,11 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
+import axios from "axios";
 
 const AddressForm = ({ onClose }) => {
+  const user = JSON.parse(localStorage.getItem("user")) || "";
+
   return (
     <Flex align="center" justify="center" mb={5}>
       <Box rounded="md" w="90%" pb={5}>
@@ -31,7 +34,11 @@ const AddressForm = ({ onClose }) => {
           }}
           onSubmit={(values) => {
             //    ############## form submit logic here ##########
-            console.log(values);
+            axios.post(
+              "https://cartify-project-api-production.up.railway.app/address",
+              { ...values, userEmail: user.email }
+            ).then((res)=>console.log(res.data));
+           
           }}
         >
           {({ handleSubmit, errors, touched }) => (
@@ -195,10 +202,8 @@ const AddressForm = ({ onClose }) => {
                   position={"fixed"}
                   bottom="20px"
                   h="48px"
-                  _hover={{ bg: "#E80071" }}
                   type="submit"
-                  bg="#E80071"
-                  color={"white"}
+                  colorScheme="whatsapp"
                   width="80%"
                 >
                   Ship to this address

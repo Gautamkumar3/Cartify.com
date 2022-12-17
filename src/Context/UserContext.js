@@ -39,7 +39,6 @@ export const UserContextProvider = ({ children }) => {
   // ############### Signup User ########################
 
   const signupUser = ({ name, email, password }) => {
-    console.log(email, password);
     SetLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
@@ -82,6 +81,10 @@ export const UserContextProvider = ({ children }) => {
     SetLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ email: user.email, name: user.displayName })
+        );
         setUser(res);
         toast({
           title: "Login Successful",
@@ -180,6 +183,10 @@ export const UserContextProvider = ({ children }) => {
     SetLoading(true);
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((res) => {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ email: res.user.email, name: res.user.displayName })
+        );
         setUser(res);
         toast({
           title: "Login Successfull",
