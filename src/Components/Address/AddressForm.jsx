@@ -34,11 +34,12 @@ const AddressForm = ({ onClose }) => {
           }}
           onSubmit={(values) => {
             //    ############## form submit logic here ##########
-            axios.post(
-              "https://cartify-project-api-production.up.railway.app/address",
-              { ...values, userEmail: user.email }
-            ).then((res)=>console.log(res.data));
-           
+            axios
+              .post(
+                "https://cartify-project-api-production.up.railway.app/address",
+                { ...values, userEmail: user.email }
+              )
+              .then((res) => console.log(res.data));
           }}
         >
           {({ handleSubmit, errors, touched }) => (
