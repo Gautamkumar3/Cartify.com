@@ -26,8 +26,7 @@ Cartify is a ecommerce website where you can  purchase Jewelaray, accessories, c
 
 ### Deplyoed Link
  
-https://gk-singh-cart-demo.netlify.app/
-
+https://cartify-ten.vercel.app/?q=
 
 ### About Project
 
