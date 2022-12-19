@@ -1,4 +1,4 @@
-import { useToast } from "@chakra-ui/react";
+import { useDisclosure, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { createContext } from "react";
@@ -10,6 +10,28 @@ export default function AuthContextProvider({ children }) {
 
   const [cartData, setCartData] = useState([]);
   const [qty, setQty] = useState(0);
+  const [address, setAddress] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    axios
+      .get("https://cartify-project-api-production.up.railway.app/address")
+      .then((res) => setAddress(res.data));
+  }, []);
+  const getAddress = async () => {
+    axios
+      .get("https://cartify-project-api-production.up.railway.app/address")
+      .then((res) => setAddress(res.data));
+  };
+
+  const addAddress = async (data) => {
+    let res = await axios
+      .post(
+        "https://cartify-project-api-production.up.railway.app/address",
+        data
+      )
+      .then((res) => getAddress());
+  };
 
   const cartshowData = () => {
     try {
@@ -101,6 +123,8 @@ export default function AuthContextProvider({ children }) {
         handleDelete,
         cartData,
         cartshowData,
+        address,
+        addAddress,
       }}
     >
       {children}

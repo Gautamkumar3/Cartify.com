@@ -8,6 +8,7 @@ import {
   Image,
   SimpleGrid,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useContext, useState } from "react";
@@ -19,20 +20,13 @@ import AddressCard from "./AddressCard";
 import AddressModal from "./AddressModal";
 
 const Address = () => {
-  const { cartData } = useContext(AuthContext);
-  const [data, setData] = useState([]);
+  const { cartData, address: data } = useContext(AuthContext);
 
   const user = JSON.parse(localStorage.getItem("user")) || "";
   const total = cartData
     .filter((el) => el.userEmail === user.email)
     .reduce((acc, el) => acc + el.price * el.qty, 0);
   const filterAddress = data.filter((el) => el.userEmail === el.userEmail);
-
-  useEffect(() => {
-    axios
-      .get("https://cartify-project-api-production.up.railway.app/address")
-      .then((res) => setData(res.data));
-  }, []);
 
   return (
     <>
@@ -68,7 +62,7 @@ const Address = () => {
           </Box>
         </Flex>
       </Box>
-      <SimpleGrid columns={3} w="80%" m={"auto"}>
+      <SimpleGrid columns={3} w="80%" m={"auto"} spacing={5}>
         {filterAddress?.map((address) => (
           <AddressCard key={address.id} {...address} />
         ))}

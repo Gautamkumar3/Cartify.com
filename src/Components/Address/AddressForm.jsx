@@ -13,9 +13,12 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const AddressForm = ({ onClose }) => {
   const user = JSON.parse(localStorage.getItem("user")) || "";
+  const { addAddress } = useContext(AuthContext);
 
   return (
     <Flex align="center" justify="center" mb={5}>
@@ -34,12 +37,7 @@ const AddressForm = ({ onClose }) => {
           }}
           onSubmit={(values) => {
             //    ############## form submit logic here ##########
-            axios
-              .post(
-                "https://cartify-project-api-production.up.railway.app/address",
-                { ...values, userEmail: user.email }
-              )
-              .then((res) => console.log(res.data));
+            addAddress({ ...values, userEmail: user.email });
           }}
         >
           {({ handleSubmit, errors, touched }) => (

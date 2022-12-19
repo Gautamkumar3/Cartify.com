@@ -18,7 +18,7 @@ import {
 import React from "react";
 import AddressForm from "./AddressForm";
 
-const AddressModal = () => {
+const AddressModal = ({ handleClose }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
