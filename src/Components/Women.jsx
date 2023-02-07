@@ -14,7 +14,9 @@ const Women = () => {
     useEffect(() => {
         setLoading(true)
         axios
-          .get("https://cartify-project-api-production.up.railway.app/women")
+          .get(
+            "https://cartify-project-api-production-58d7.up.railway.app/women"
+          )
           .then((res) => {
             setData(res.data);
             setLoading(false);

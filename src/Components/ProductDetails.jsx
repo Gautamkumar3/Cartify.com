@@ -18,7 +18,7 @@ import { AuthContext } from "../Context/AuthContext";
 import Navbar from "./Navbar";
 
 const detailsShow = (id) => {
-  const api = "https://cartify-project-api-production.up.railway.app";
+  const api = "https://cartify-project-api-production-58d7.up.railway.app";
 
   if (id <= 20) {
     return fetch(`${api}/products/${id}`).then((res) => res.json());
@@ -50,11 +50,14 @@ const ProductDetails = () => {
     if (cartData.length === 0) {
       try {
         axios
-          .post("https://cartify-project-api-production.up.railway.app/cart", {
-            ...data,
-            userEmail: user.email,
-            qty: 1,
-          })
+          .post(
+            "https://cartify-project-api-production-58d7.up.railway.app/cart",
+            {
+              ...data,
+              userEmail: user.email,
+              qty: 1,
+            }
+          )
           .then((res) => {
             cartshowData();
             toast({
@@ -73,13 +76,18 @@ const ProductDetails = () => {
       cartData.map((el) => {
         if (el.id === id) {
           axios
-            .get(`https://cartify-project-api-production.up.railway.app/cart/${id}`)
+            .get(
+              `https://cartify-project-api-production-58d7.up.railway.app/cart/${id}`
+            )
             .then((res) => {
               res.data.qty += 1;
               axios
-                .patch(`https://cartify-project-api-production.up.railway.app/cart/${id}`, {
-                  qty: res.data.qty,
-                })
+                .patch(
+                  `https://cartify-project-api-production-58d7.up.railway.app/cart/${id}`,
+                  {
+                    qty: res.data.qty,
+                  }
+                )
                 .then((res) => {
                   cartshowData();
                   toast({
@@ -94,11 +102,14 @@ const ProductDetails = () => {
             });
         } else {
           axios
-            .post("https://cartify-project-api-production.up.railway.app/cart", {
-              ...data,
-              userEmail: user.email,
-              qty: 1,
-            })
+            .post(
+              "https://cartify-project-api-production-58d7.up.railway.app/cart",
+              {
+                ...data,
+                userEmail: user.email,
+                qty: 1,
+              }
+            )
             .then((res) => {
               cartshowData();
               toast({

@@ -29,7 +29,7 @@ const Home = () => {
     setLoading(true);
     axios
       .get(
-        `https://cartify-project-api-production.up.railway.app/products?_sort=price&_order=${sortBy}`
+        `https://cartify-project-api-production-58d7.up.railway.app/products?_sort=price&_order=${sortBy}`
       )
       .then((res) => {
         setData(res.data);

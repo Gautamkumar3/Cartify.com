@@ -53,10 +53,13 @@ const Payment = () => {
     }
 
     axios
-      .post("https://cartify-project-api-production.up.railway.app/payment", {
-        ...formData,
-        userEmail: user.email,
-      })
+      .post(
+        "https://cartify-project-api-production-58d7.up.railway.app/payment",
+        {
+          ...formData,
+          userEmail: user.email,
+        }
+      )
       .then((res) => console.log(res.data))
       .then((res) => {
         toast({

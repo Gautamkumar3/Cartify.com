@@ -19,17 +19,22 @@ export default function ProductCard(props) {
 
   const toast = useToast();
   const { cartshowData, cartData } = useContext(AuthContext);
-   const user = JSON.parse(localStorage.getItem("user")) || "";
-  console.log(cartData)
+  const user = JSON.parse(localStorage.getItem("user")) || "";
+  console.log(cartData);
+
+  let api = "https://cartify-project-api-production-58d7.up.railway.app";
 
   const addToCart = (id) => {
     if (cartData.length === 0) {
       axios
-        .post("https://cartify-project-api-production.up.railway.app/cart", {
-          ...props,
-          userEmail: user.email,
-          qty: 1,
-        })
+        .post(
+          "https://cartify-project-api-production-58d7.up.railway.app/cart",
+          {
+            ...props,
+            userEmail: user.email,
+            qty: 1,
+          }
+        )
         .then((res) => {
           cartshowData();
           toast({
@@ -44,33 +49,26 @@ export default function ProductCard(props) {
     } else {
       cartData.map((el) => {
         if (el.id === id) {
-          axios
-            .get(
-              `https://cartify-project-api-production.up.railway.app/cart/${id}`
-            )
-            .then((res) => {
-              res.data.qty += 1;
-              axios
-                .patch(
-                  `https://cartify-project-api-production.up.railway.app/cart/${id}`,
-                  { qty: res.data.qty }
-                )
-                .then((res) => {
-                  cartshowData();
-                  toast({
-                    title: "Quantity Increase",
-                    description: "Product already in the cart",
-                    status: "success",
-                    duration: 9000,
-                    isClosable: true,
-                    position: "top",
-                  });
+          axios.get(`${api}/cart/${id}`).then((res) => {
+            res.data.qty += 1;
+            axios
+              .patch(`${api}/cart/${id}`, { qty: res.data.qty })
+              .then((res) => {
+                cartshowData();
+                toast({
+                  title: "Quantity Increase",
+                  description: "Product already in the cart",
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true,
+                  position: "top",
                 });
-            });
+              });
+          });
         } else {
           axios
             .post(
-              "https://cartify-project-api-production.up.railway.app/cart",
+              "https://cartify-project-api-production-58d7.up.railway.app/cart",
               { ...props, qty: 1, userEmail: user.email }
             )
             .then((res) => {

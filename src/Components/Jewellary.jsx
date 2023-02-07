@@ -16,7 +16,7 @@ const Jewellary = () => {
         setLoading(true)
         axios
           .get(
-            "https://cartify-project-api-production.up.railway.app/jewellary"
+            "https://cartify-project-api-production-58d7.up.railway.app/jewellary"
           )
           .then((res) => {
             setData(res.data);

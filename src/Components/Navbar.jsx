@@ -38,7 +38,7 @@ const Navbar = () => {
   const searchData = (query) => {
     axios
       .get(
-        `https://cartify-project-api-production.up.railway.app/products?q=${query}`
+        `https://cartify-project-api-production-58d7.up.railway.app/products?q=${query}`
       )
       .then((res) => {
         setData(res.data);
